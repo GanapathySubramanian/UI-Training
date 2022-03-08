@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Ui Training - Ex:1</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+/*  navbar */
+    nav ul li{
+        display: inline;
+        padding: 10px;
+    }
+    nav ul li.nav-brand{
+        font-weight: bold;
+        font-size: 30px;
+        padding: 3px 40px;
+    }
+    nav ul ul.nav-right{
+        float:right;
+        padding: 3px 50px;
+    }
+    .contactus-btn{
+        border: 1px solid grey;
+        padding: 12px 20px;
+        border-radius: 10px;
+        background-color: #fff;
+    }
+
+    .nav-link{
+        padding: 10px 25px;
+        font-weight: bold;
+    }
+    .nav-link.active{
+        color: #fca71e;
+    }
+
+/*     Personal Details  */
+.personal-img{
+        float: right;
+        margin-right: 20px;
+        width: 30%;
+        height: 30%;
+    }
+    .content div{
+        margin-left: 75px;
+    }
+    .content div h1{
+        font-size: 100px;
+        margin-bottom: 0px;
+    }
+    .content div #name{
+        font-size: 70px;
+        color: #fca71e;
+        font-weight: bold;
+        margin-top: 20px;
+    }
+    .content ul{
+        margin-left: 10px;
+    }    
+    .about-me{
+        margin-right: 20%;
+        padding-right: 24%;
+        line-height: 1.5;
+    }
+    .personal-details .content ul li{
+        display: inline-block;
+        padding: 20px;
+        cursor: pointer;
+    }
+    .personal-details  .content ul li img{
+        width: 100px;
+        height: 62px;
+        margin-top: 20px;
+        margin-bottom: -20px;
+    }
+    
+    .hireme-btn{
+        border: none;
+        border-radius: 5px;
+        background-image: linear-gradient(#ffa500, #fca71e);
+        color: #fff;
+        padding: 20px 50px;
+        
+    }   
+    
+</style>
+  </head>
+  <body>
+
+    <!-- ----Header Section---- -->
+    <header>
+      <nav>
+        <ul>
+          <li class="nav-brand">Personal</li>
+          <ul class="nav-right">
+            <li><a class="nav-link active">Home</a></li>
+            <li><a class="nav-link">About Us</a></li>
+            <li><a class="nav-link">Services</a></li>
+            <li><a class="nav-link contactus-btn">Contact Us</a></li>
+          </ul>
+        </ul>
+      </nav>
+    </header>
+    <!-- ----Personal Details Section---- -->
+    <section class="personal-details">
+        <div class="img"> 
+            <img
+            class="personal-img"
+            src="https://avatars.githubusercontent.com/u/60843507?v=4"
+            />
+        </div>
+        <div class="content">
+            <div>
+                <h1>Hy! I Am</h1>
+                <p id="name">Ganapathy Subramanian</p>
+                <p class="about-me">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy text ever
+                since the 1500s.
+                </p>
+            </div>
+            <ul>
+              <li>
+                  <a class="hireme-btn">Hire Me</a>
+              </li>
+              <li>
+                <img src="https://logowik.com/content/uploads/images/897_paypal.jpg"/>
+              </li>
+              <li>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/2560px-MasterCard_Logo.svg.png"/>
+              </li>
+              <li>
+                <img src="data:image/png;base64,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"/>
+              </li>
+              <li>
+                <img src="https://cdn.freebiesupply.com/logos/large/2x/visa-logo-svg-vector.svg"/>
+              </li>
+            </ul>
+        </div>
+    </section>
+
+  </body>
+</html>
