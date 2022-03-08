@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI(DAY-2) ~ EX-1</title>
+<style>
+    .main{
+        width: 800px;
+        height: 700px;
+        margin: 0 auto;
+        background-color:#6792ce;
+    }
+    .house-top{
+        display: flex;
+        justify-content: center;
+    }
+    .house-bottom{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .rectangle{
+        width: 300px;
+        height: 250px;
+        background-color: #253c83;
+        border-radius: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        overflow: hidden;
+    }
+    .door{
+        width: 100px;
+        height: 120px;
+        background-color: #efb84f;
+        border-radius: 25px;
+        margin-bottom: -20px;
+    }
+    .triangle{
+        margin-top: 80px;
+        width: 0;
+        height: 0;
+        border: 200px solid transparent;
+        border-top: 0;
+        border-bottom: 200px solid #253c83;
+        margin-bottom: -20px;
+    }
+    .curved-rectangle{
+        position: absolute;
+        margin-top: -200px;
+        margin-left: 10px;
+        width: 200px;
+        height: 20px;
+        background-color: #efb84f;
+        border-radius: 25px;
+    }
+</style>
+</head>
+<body>
+    
+    <div class="main">
+        <div class="house-top">
+            <div class="triangle"></div>
+        </div>
+        <div class="house-bottom">
+       
+            <div class="curved-rectangle"></div>
+       
+            <div class="rectangle"> 
+                <div class="door"></div>
+            </div>
+       
+        </div>
+        
+        
+    </div>
+</body>
+</html>

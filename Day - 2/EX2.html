@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI(DAY-2) ~ EX-2</title>
+<style>
+    .main{
+        width: 800px;
+        height: 500px;
+        margin: 0 auto;
+        background-color:#f9e490;
+        
+    }
+    .palm,.wrist{
+        margin-top: -240px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .palm div{
+        margin-top: 30%;
+        width: 280px;
+        height: 130px;
+        border-radius: 0px 0px 40px 40px;
+        background-color: #191818;
+    }
+    .wrist div{
+        width: 130px;
+        height: 200px;
+        margin-top: 165px;
+        border-radius: 40px;
+        background-color: #191818;
+    }
+    .fingers{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .indexfinger{
+        width: 50px;
+        height: 120px;
+        background-color: #191818;
+        border-radius: 30px;
+        margin-bottom: -15px;
+        border: 8px solid #f9e490;
+    }
+    .middlefinger{
+        width: 50px;
+        height: 145px;
+        background-color: #191818;
+        border-radius: 30px;
+        border: 8px solid #f9e490;
+    }
+    .ringfinger{
+        width: 50px;
+        height: 125px;
+        background-color: #191818;
+        border-radius: 30px;
+        border: 8px solid #f9e490;
+        margin-bottom: -8px;
+    }
+    .littlefinger{
+        width: 50px;
+        height: 90px;
+        background-color: #191818;
+        border-radius: 30px;
+        margin-bottom: -35px;
+        border: 8px solid #f9e490;
+    }
+    .thumbfinger{
+        position: absolute;
+        width: 50px;
+        height: 160px;
+        background-color: #191818;
+        margin-top: 75px;
+        margin-left: 260px;
+        border-radius: 35px;
+        transform: rotate(50deg);
+        overflow: hidden;
+        border: 10px solid #f9e490;
+    }
+</style>
+</head>
+<body>
+    <div class="main">
+            <div class="thumbfinger"></div>
+            <div class="fingers">
+                <div class="indexfinger"></div>
+                <div class="middlefinger"></div>
+                <div class="ringfinger"></div>
+                <div class="littlefinger"></div>
+            </div>
+    
+            <div class="palm">
+                <div></div>
+            </div>
+            <div class="wrist">
+                <div></div>
+            </div>
+       
+    </div>
+</body>
+</html>

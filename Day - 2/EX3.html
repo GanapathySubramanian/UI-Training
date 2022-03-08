@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI(DAY-2) ~ EX-3</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+    .main{
+        width: 100%;
+        height: 700px;
+        background-color: #0c1322;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        color: #fff;
+    }
+
+    .card1-overview,.card2-overview,.card3-overview,.card4-overview,.card5-overview,.card6-overview{
+        background-color: #1d204b;
+        width: 100%;
+        height: 250px;
+        transform: translateY(10%);
+        transition: all 1s ease-in-out;
+        overflow: hidden;
+        border-radius: 20px;
+    }
+
+    .sm-card1:hover .card1-overview,.sm-card2:hover .card2-overview,.sm-card3:hover .card3-overview,.sm-card4:hover .card4-overview,.sm-card5:hover .card5-overview,.sm-card6:hover .card6-overview{
+        transform: translateY(-15%);
+    } 
+
+    .lg-card .card .overview{
+        background-color: #1d204b;
+        width: 100%;
+        height: 250px;
+        transform: translateY(30%);
+        transition: all 1s ease-in;
+        overflow: hidden;
+        border-radius: 10px;
+    }
+    .lg-card:hover .overview{
+        transform: translateY(4%);
+    }
+    .container{
+        overflow: hidden;
+    }
+
+    .left-side-cards{
+        float: left;
+        
+    }
+    .right-side-cards{
+        float:right;
+    }
+    .lg-card{
+        height: 450px;
+        width: 300px;
+        background-color: #5647eb;
+        border-radius: 10px;
+    }
+    .card-top{
+        display: flex;
+        flex-direction: row;
+    }
+    .card-bottom{
+        display: flex;
+        flex-direction: row;
+    }
+    .sm-card1,.sm-card2,.sm-card3,.sm-card4,.sm-card5,.sm-card6{
+        z-index: 10;
+        height: 240px;
+        width: 300px;
+        margin: 10px;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .sm-card1{
+        background-color: #fe8c65;
+        border: 1px solid #1d204b;
+    }
+    .sm-card2{
+        background-color: #55c5e9;
+    }
+    .sm-card3{
+        background-color: #fc5879;
+    }
+    .sm-card4{
+        background-color: #43cf7d;
+    }
+    .sm-card5{
+        background-color: #7034d2;
+    }
+    .sm-card6{
+        background-color: #e5a337;
+    }
+
+    .lg-card .main-content img{
+        margin: 30px 0 0 30px;
+    }
+    .lg-card .main-content p{
+        margin:5px 0px 0px 35px ;
+    }
+    .lg-card .main-content h1{
+        margin: 5px 0px 0px 35px;
+        font-size:30px;
+    }
+    .card1-overview p,.card2-overview p,.card3-overview p,.card4-overview p,.card5-overview p,.card6-overview p{
+        margin: 20px;
+        margin-left: 4px;
+        display: flex;
+        font-size: 20px;
+        justify-content: space-between;
+    }
+    .card1-overview h1,.card2-overview h1,.card3-overview h1,.card4-overview h1,.card5-overview h1,.card6-overview h1{
+        margin-left: 20px;
+    }
+    .card1-overview span,.card2-overview span,.card3-overview span,.card4-overview span,.card5-overview span,.card6-overview span{
+        margin-left: 20px;
+        color: #999999;
+    }
+    .card .overview p{
+        margin-left: 20px;
+        color: #999999;
+    }
+    .card .overview p.active{
+        color: #fff;
+    }
+    .card-img{
+        margin-top: 10px;
+        width: 70px;
+        height: 70px;
+        margin-left: 220px;
+        transform: rotate(50deg);
+    }
+
+    .ball1,.ball2,.ball3,.ball4,.ball5{
+        position: absolute;
+        left:0;
+        top: 0;
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        background-color: red;
+    }
+    .ball1{
+        background-color: #fe8c65;
+    }
+    .ball2{
+        background-color: #55c5e9;
+    }
+    .ball3{
+        background-color: #fc5879;
+    }
+    .ball4{
+        background-color: #7034d2;
+    }
+    .ball5{
+        background-color: #43cf7d;
+    }
+   
+.animation-1{
+    animation: balleffect 8s ease-in 0s infinite;
+}
+
+.animation-2{
+    animation: balleffect 7s ease-in 0s infinite;
+}
+
+.animation-3{
+    animation: balleffect 6s ease-in 0s infinite;
+}
+.animation-4{
+    animation: balleffect 5s ease-in 0s infinite;
+}
+.animation-5{
+    animation: balleffect 4s ease-in 0s infinite;
+}
+
+
+
+@keyframes balleffect {
+  0% {
+    transform: translateX(0%)translateY(0%);
+  }
+  20% {
+    transform: translateX(20vw)translateX(60vh); 
+  }
+  40% {
+    transform: translateX(20vw)translateY(90vh);
+  }
+  60% {
+    transform: translateX(60vw)translateY(90vh);
+  }
+  80% {
+    transform: translateX(80vw);
+  }
+  100% {
+    transform: translateX(90vw)translateY(90vh);
+  }
+}
+
+    </style>
+</head>
+<body>
+    <div class="main">  
+        <div class="ball1 animation-1"></div>
+            <div class="ball2 animation-2"></div>
+            <div class="ball3 animation-3"></div>
+            <div class="ball4 animation-4"></div>
+            <div class="ball5 animation-5"></div>  
+        <section class="container">
+            
+
+            <div class="left-side-cards"  style="z-index: 10;">
+                <div class="lg-card">
+                    <div class="main-content">
+                        <img src="https://cdn-icons.flaticon.com/png/512/4140/premium/4140048.png?token=exp=1646740932~hmac=0f0b3204c8f4762a641c9b88b4870f2d" width="100" height="100" alt="">
+                        <p>Report for</p>
+                        <h1>Jeremy <br/>Robson</h1>
+                    </div>
+                    <div class="card">
+                        <div class="overview">
+                            <P>Daily</P>
+                            <p class="active">Weekly</p>
+                            <p>Monthly</p>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="right-side-cards">
+                <div class="card-top">
+                    <div class="sm-card1">
+                        <div class="main-content">
+                            <img class="card-img" src="https://cdn-icons-png.flaticon.com/512/3281/3281307.png" alt="" srcset="">
+                        </div>
+                        <div class="card1-overview">
+                            <P><span>Work</span> <span>....</span></P>
+                            <h1>32hrs</h1>
+                            <span>Last Week - 36hrs</span>
+                        </div>
+                    </div>
+                    <div class="sm-card2">
+                        <div class="main-content">
+                            <img class="card-img" src="https://cdn-icons.flaticon.com/png/512/4854/premium/4854246.png?token=exp=1646742632~hmac=534103d27a6bbe70715501eee428fda1" alt="">
+                        </div>
+                        <div class="card2-overview">
+                            <P><span>Play</span> <span>....</span></P>
+                            <h1>10hrs</h1>
+                            <span>Last Week - 8hrs</span>
+                        </div>
+                    </div>
+                    <div class="sm-card3">
+                        <div class="main-content">
+                            <img class="card-img" src="https://cdn-icons-png.flaticon.com/512/167/167755.png" alt="">
+                        </div>
+                        <div class="card3-overview">
+                            <P><span>Study</span> <span>....</span></P>
+                            <h1>4hrs</h1>
+                            <span>Last Week - 7hrs</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-bottom">
+                    <div class="sm-card4">
+                        <div class="main-content">
+                            <img class="card-img" src="https://cdn-icons-png.flaticon.com/512/1869/1869315.png" alt="">
+                        </div>
+                        <div class="card4-overview">
+                            <P><span>Exercise</span> <span>....</span></P>
+                            <h1>4hrs</h1>
+                            <span>Last Week - 5hrs</span>
+                        </div>
+                    </div>
+                    <div class="sm-card5">
+                        <div class="main-content">
+                            <img class="card-img" src="https://cdn-icons-png.flaticon.com/512/2065/2065203.png" alt="">
+                        </div>
+                        <div class="card5-overview">
+                            <P><span>Social</span> <span>....</span></P>
+                            <h1>5hrs</h1>
+                            <span>Last Week - 10hrs</span>
+                        </div>
+                    </div>
+                    <div class="sm-card6">
+                        <div class="main-content">
+                            <img class="card-img" src="https://cdn-icons-png.flaticon.com/512/3158/3158969.png" alt="">
+                        </div>
+                        <div class="card6-overview">
+                            <P><span>Self Care</span> <span>....</span></P>
+                            <h1>2hrs</h1>
+                            <span>Last Week - 2hrs</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+    </div>
+</body>
+</html>
