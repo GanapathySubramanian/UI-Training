@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI(DAY-5) ~ EX-2</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    *{
+        font-family: 'Poppins', sans-serif;
+        
+    }
+    body{
+        background-color: #f5f6f8;
+    }
+    .content h1{
+        margin: 50px;
+        font-size: 30px;
+    }
+    .content h1 span{
+        color: #999999;
+    }
+    .card-section{
+        display: grid;
+        grid-template-columns: 4fr 4fr 4fr;
+        grid-template-rows: 4fr 4fr 4fr;
+        grid-gap: 5px;
+    }
+    .card{
+        margin: 30px;
+        padding: 15px;
+        width: 300px;
+        height: 200px;
+        background-color: #fff;
+        border-radius: 5px;
+        /* border-top: 7px solid #47a4fc; */
+    }
+    .card h3{
+        opacity: 0.5;
+        padding: 5px;
+        width: 200px;
+        text-align: center;
+        border-radius: 3px;
+    }
+    .card h3 span{
+        color:#fff;
+    }
+    .card .card-footer{
+        float: left;
+        margin-top: 30px;
+    }
+
+    .card-footer .chat{
+        display: inline;
+        /* justify-content: space-between; */
+    } 
+    .card-footer .chat span{
+        font-size: 20px;
+        margin: 5px;
+    }
+    .card-footer .file{
+        display: inline;
+    }
+    .user{
+        float: right;
+        margin-top: 20px;
+    }
+    .user .usr1{
+        margin-right: 30px;
+    }
+    .user .usr2{
+        position: absolute;
+        margin-left: -60px;
+    }
+    .user .addUser{
+        position: absolute;
+        border-radius: 100%;
+        background-color: #f5f6f8;
+        color: #0070e5;
+        text-align: center;
+        width: 30px;
+        padding:10px ;
+        margin-left: -40px;
+    }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="content">
+            <h1><span> Welcome Back</span>, Ganapathy Subramanian</h1>
+        </div>
+        <div class="card-section" id="card-container">
+             
+        </div>
+    </div>
+    <script>
+        const TODOS = [
+            {
+            "id": "1",
+            "description": "Finalize the sales plan for new product marketing",
+            "category": "Management",
+            "isCompleted": true,
+            "chat":4,
+            "file":2,
+            "categorycolor":"#47a4fc",
+            "topbar":"#2765c0",
+            "usr1":"https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+            "usr2":"https://cdn-icons.flaticon.com/png/512/2202/premium/2202112.png?token=exp=1647179639~hmac=2515cec1e3706bb43fd7292c2fa44e82"
+            },
+            {
+            "id": "2",
+            "description": "Run sales training program for sales representativies",
+            "category": "Sales",
+            "isCompleted": false,
+            "chat":3,
+            "file":0,
+            "categorycolor":"#fbe9bf",
+            "topbar":"#ebc070",
+            "usr1":"https://cdn-icons-png.flaticon.com/512/3011/3011270.png",
+            "usr2":"https://cdn-icons.flaticon.com/png/512/4140/premium/4140047.png?token=exp=1647179639~hmac=bc23cb8a0062c14a8f253f222b9ad0d4"
+            },
+            {
+            "id": "3",
+            "description": "Secure Lease on new office space for expanded team",
+            "category": "Operations",
+            "isCompleted": true,
+            "chat":3,
+            "file":2,
+            "categorycolor":"#fcdddd",
+            "topbar":"#e15d5d",
+            "usr1":"https://cdn-icons.flaticon.com/png/512/4140/premium/4140048.png?token=exp=1647179639~hmac=89c8f8da62a444df3b54d5c4cd7f89d1",
+            "usr2":"https://cdn-icons.flaticon.com/png/512/4140/premium/4140037.png?token=exp=1647179767~hmac=80afd489af03c1d221a052b874f84fcd"
+            },
+            {
+            "id": "4",
+            "description": "Hire New Operations & Facilities Manager",
+            "category": "Human Resource",
+            "isCompleted": true,
+            "chat":2,
+            "file":4,
+            "categorycolor":"#f1d6b4",
+            "topbar":"#db985b",
+            "usr1":"https://cdn-icons.flaticon.com/png/512/4140/premium/4140051.png?token=exp=1647179773~hmac=8887db583917f0819a380cd5ee0f8914",
+            "usr2":"https://cdn-icons-png.flaticon.com/512/4139/4139970.png"
+            },
+            {
+            "id": "5",
+            "description": "Prepare end of year report for board of directors",
+            "category": "Management",
+            "isCompleted": true,
+            "chat":2,
+            "file":1,
+            "categorycolor":"#6187bb",
+            "topbar":"#2163c0",
+            "usr1":"https://cdn-icons-png.flaticon.com/512/4139/4139981.png",
+            "usr2":"https://cdn-icons.flaticon.com/png/512/4140/premium/4140059.png?token=exp=1647179818~hmac=6ce2f381b10d3a4fd86c0f341ed7ba69"
+            },
+           
+            {
+            "id": "6",
+            "description": "Cost projections for company acquisition & impact on revenue",
+            "category": "Finance",
+            "isCompleted": true,
+            "chat":3,
+            "file":4,
+            "categorycolor":"#bfe3b9",
+            "topbar":"#6cb464",
+            "usr1":"https://cdn-icons.flaticon.com/png/512/4139/premium/4139993.png?token=exp=1647179836~hmac=44c7fc973981e1475301918719cc937c",
+            "usr2":"https://cdn-icons.flaticon.com/png/512/4140/premium/4140074.png?token=exp=1647179847~hmac=9fe00bad0c38e0f635995047cdbb5a9a"
+            },
+            {
+            "id": "7",
+            "description": "On-board new user from SkyNet Networks company",
+            "category": "Customer Service",
+            "isCompleted": false,
+            "chat":8,
+            "file":3,
+            "categorycolor":"#e0bff0",
+            "topbar":"#9e4ddc",
+            "usr1":"https://cdn-icons.flaticon.com/png/512/4140/premium/4140052.png?token=exp=1647179860~hmac=e3c1a54b85b4de5a4c51b9b03f1c3744",
+            "usr2":"https://cdn-icons.flaticon.com/png/512/4140/premium/4140061.png?token=exp=1647179873~hmac=07ec761f7a0318dc71d5799d00d5090d"
+            },
+            {
+            "id": "8",
+            "description": "Create facebook Ad capaign from product launch",
+            "category": "Marketing",
+            "isCompleted": false,
+            "chat":5,
+            "file":3,
+            "categorycolor":"#ae9ae1",
+            "topbar":"#694ac0",
+            "usr1":"https://cdn-icons.flaticon.com/png/512/4140/premium/4140044.png?token=exp=1647179886~hmac=49c737b7c3659735b1fc3306cc801574",
+            "usr2":"https://cdn-icons.flaticon.com/png/512/4140/premium/4140066.png?token=exp=1647179901~hmac=94c8ac122dc2e2828f0fccada9c8b854"
+            }
+        ]
+
+        var element = document.getElementById('card-container');
+        for(let i=0;i<TODOS.length;i++){
+
+            
+            var div = document.createElement('div')
+            div.setAttribute('class',`card`)
+            div.setAttribute('style',`border-top:7px solid ${TODOS[i].topbar}`)
+            div.innerHTML = `
+                    <h3 style="background-color:${TODOS[i].categorycolor}"><span id="category">${TODOS[i].category}</span></h3>
+                    <p id="description">${TODOS[i].description}</p>
+                    <div>
+                        <span class="card-footer">
+                            <span class="chat">  
+                                <img src="https://cdn-icons-png.flaticon.com/512/589/589708.png" width="30">
+                                <span>6</span>
+                            </span>
+                            <span class="file">
+                                <img src="https://cdn-icons-png.flaticon.com/512/659/659774.png" width="30">
+                                <span>2</span>
+                            </span>
+                        </span>
+                        <span class="user">
+                            <img class="usr1" src="${TODOS[i].usr1}" width="50" height="44" alt="">
+                            <img class="usr2" src="${TODOS[i].usr2}" width="50" height="44" alt="">
+                            <span class="addUser">+</span>
+                        </span>
+                    </div>
+            `;
+            element.appendChild(div);
+            
+        }
+    </script>
+</body>
+</html>

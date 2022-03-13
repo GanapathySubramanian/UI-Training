@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI(DAY-5) ~ EX-1</title>
+
+    <style>
+        body{
+            font-family: 'Press Start 2P', cursive;
+            background-color: #081945;
+            color: #fca71e;
+        }
+       .card-top{
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           /* margin-top: 150px; */
+       }
+        .card{
+            width: 250px;
+            height: 200px;
+            margin: 20px;
+            border-radius: 5px;
+        }
+        .card-bottom{
+            display: flex;
+           justify-content: center;
+           align-items: center;
+           margin-top: 15px;
+        }
+
+        .header{
+           display: flex;
+           justify-content: space-around;
+       }
+       #tryAgain{
+           margin: 30px;
+           display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            background-color:#fca71e;
+            padding: 20px 70px;
+            font-size: 24px;
+            border: 1px solid #fca71e;
+            border-radius: 5px;
+       }
+        #Score{
+            display: flex;
+            margin-top: 20px;
+            justify-content: flex-start;
+        }
+        #score-value{
+            color: green;
+            margin-top: -10px;
+            margin-left: 30px;
+        }
+        .msg-section{
+            display: flex;
+            justify-content: center;
+            margin-left: -40px;
+        }
+        .welcome-section{
+            display: flex;
+            justify-content: center;
+        }
+        .shake {
+            animation: shake 0.82s;
+        }
+
+    @keyframes shake {
+    10%, 90% {
+        transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+        transform: translate3d(2px, 0, 0);
+    }
+
+    30%, 50%, 70% {
+        transform: translate3d(-4px, 0, 0);
+    }
+
+    40%, 60% {
+        transform: translate3d(4px, 0, 0);
+    }
+    }
+        @media only screen and (max-width: 900px) {
+
+            .card-top{
+                display: flex;
+                justify-content: center;
+            }
+            .card-bottom{
+                display: flex;
+                justify-content: center;
+
+            }
+            .card{
+                width: 150px;
+                height: 150px;
+                background-color: #Fff;
+                border-radius: 5px;
+            }
+            .header{
+                display: block;
+            }
+        }
+        @media only screen and (max-width: 600px) {
+            .card-top{
+                display: block;
+                justify-content: center;
+                align-items: center;
+                margin: 5px 100px 0px 80px;
+            }
+            .card-bottom{
+                display: block;
+                justify-content: center;
+                align-items: center;
+                margin: 5px 100px 0px 80px;
+            }
+            .card{
+                width: 250px;
+                height: 200px;
+                margin: 20px;
+                background-color: #Fff;
+                border-radius: 5px;
+            }
+            .header .score-section{
+                display: block;
+                text-align: center;
+            }
+            .header .score-section #Score{
+                display: block;
+                text-align: center;
+            }
+            .header {
+                display: block;
+                text-align: center;
+            }
+            .msg-section{
+                display: block;
+                text-align: center;
+            }
+        }
+
+
+    </style>
+</head>
+<body onload="newGame()">
+    <div class="main">
+        <div class="welcome-section">
+            <h1>WELCOME TO THE GAME - GUESS THE COLOR</h1>
+        </div>
+        <div class="header">
+            
+            <div class="score-section">
+                <h1>Score</h1>
+                <div id="Score">
+                    <h1 id="score-value"></h1>
+                </div>
+            </div>
+            <div class="btn">
+                <button id="tryAgain" onclick="newGame();">New Game</button>
+            </div>
+            <div class="hex-code">
+                <h1 id="hex"></h1>
+            </div>
+        </div>
+        <div class="msg-section">
+            <h1 id="msg"></h1>
+        </div>
+        <div class="card-section">
+            <div class="card-top">
+                <div class="card" id="card1" onclick="checkCode(this.id,this.style.backgroundColor)"></div>
+                <div class="card" id="card2" onclick="checkCode(this.id,this.style.backgroundColor)"></div>
+                <div class="card" id="card3" onclick="checkCode(this.id,this.style.backgroundColor)"></div>
+            </div>
+            <div class="card-bottom">
+                <div class="card" id="card4" onclick="checkCode(this.id,this.style.backgroundColor)"></div>
+                <div class="card" id="card5" onclick="checkCode(this.id,this.style.backgroundColor)"></div>
+                <div class="card" id="card6" onclick="checkCode(this.id,this.style.backgroundColor)"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        var level=1;
+        var hex=[];
+        var hexDisplayVal;
+        var Score;
+        function newGame(){
+            level=1;
+            Score=0;
+            document.getElementById("msg").textContent="Level : "+level;
+            document.getElementById("score-value").textContent=Score;
+            hexGenerator();
+        }
+        function hexGenerator(){ 
+            hex=Array.from({ length: 6}, () => '#'+(Math.random() * 0xFFFFFF << 0).toString(16).padStart(6, '0'));
+            hexDisplayVal=hex[Math.floor(Math.random() * hex.length)];
+            document.getElementById("hex").textContent=hexDisplayVal;
+            console.log(hex);
+           let cardId;
+            for(let i=0;i<6;i++){
+                let k=(i+1).toString();
+                cardId="card"+k;
+                document.getElementById(cardId).style.background = hex[i];
+            }
+        }
+      
+        function checkCode(cardId,bg){
+            let result=hexToRgb(hexDisplayVal);
+            let rgbVal="rgb("+result.r+", "+result.g+", "+result.b+")";
+            console.log(rgbVal +" "+cardId+" : "+bg);
+          
+
+            if(rgbVal.toString()==bg.toString()){
+               alert("Wow Awesome!!! correct Answer");
+               
+               level=level+1;
+               Score=Score+5;
+               document.getElementById("msg").textContent="Level : "+level;
+               document.getElementById("score-value").textContent=Score;
+               hexGenerator();
+            }else{
+                setInterval(shake(cardId), 300);
+            }
+        }
+            
+        function shake(id){
+            let classExist = document.getElementById(id).classList.contains('shake')
+            console.log(classExist);
+            if(classExist){
+                document.getElementById(id).classList.toggle('shake')
+            }else{
+             let test = document.getElementById(id).classList;
+            !test.contains('shake')? test.add('shake'): test.remove('shake');
+            }
+        }
+
+
+        function hexToRgb(hex) {
+            var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+            return result ? {
+                r: parseInt(result[1], 16),
+                g: parseInt(result[2], 16),
+                b: parseInt(result[3], 16)
+            } : null;
+        }
+
+    </script>
+</body>
+</html>
