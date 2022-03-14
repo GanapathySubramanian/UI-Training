@@ -1,3 +1,45 @@
 button{
     margin: 5px;
+    padding: 5px;
+
+}
+.success{
+    background-color: #5cb85c;
+    color: #fff;
+    border: 1px solid #5cb85c;
+}
+
+.error{
+    background-color: #d9534f;
+    color: #fff;
+    border: 1px solid #d9534f;
+}
+
+.info{
+    color: #fff;
+    background-color: #5bc0de;
+    border: 1px solid #5bc0de;
+}
+
+.warning{
+    color: #fff;
+    background-color:#f0ad4e;
+    border: 1px solid #f0ad4e;
+}
+
+.success:hover{
+    background-color: #fff;
+    color: #5cb85c;
+}
+.error:hover{
+    background-color: #fff;
+    color: #d9534f;
+}
+.info:hover{
+    background-color: #fff;
+    color: #5bc0de;
+}
+.warning:hover{
+    background-color: #fff;
+    color: #f0ad4e;
 }

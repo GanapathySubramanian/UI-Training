@@ -11,19 +11,19 @@ export class AppComponent {
    
   constructor(private toastr: ToastrService) { }
    
-  showToasterSuccess(){
+  Success(){
     this.toastr.success("Success Toaster !!!", "This is Success")
   }
    
-  showToasterError(){
+  Error(){
     this.toastr.error("Error Toaster !!!", "This is Error")
   }
    
-  showToasterInfo(){
+  Info(){
     this.toastr.info("Info Toaster !!!", "This is info")
   }
    
-  showToasterWarning(){
+  Warning(){
     this.toastr.warning("Warning Toaster !!!", "This is warning")
   }
 }
