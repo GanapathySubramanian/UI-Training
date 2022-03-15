@@ -10,7 +10,7 @@ export class CompletedListComponent implements OnInit {
 
   @Input('completelist') completedList:String[]=[]
   @Input('todolist') todoList:String[]=[];
-  data:String;
+
   storage:Storage=localStorage;
    constructor(private router:Router) {
     }
