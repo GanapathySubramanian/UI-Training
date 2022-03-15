@@ -28,7 +28,7 @@ Presidio UI Training
 
 # Day 6 
   ### TOASTER - ANGULAR
-  Live Demo : [Click here](https://confident-feynman-ea587e.netlify.app/)
+  Live Demo : [Click here](https://wonderful-golick-11bf28.netlify.app/)
 
 # Day 7 
   ### TODO LIST - ANGULAR
