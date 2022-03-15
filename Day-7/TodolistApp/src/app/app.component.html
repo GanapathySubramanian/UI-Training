@@ -1,0 +1,16 @@
+<div class="box" id="heading">
+  <h1>Todo List App</h1>
+</div>
+
+<div class="box">
+    <form class="todoForm">
+      <input type="text" placeholder="New Item" #task>
+      <button type="button"  (click)="addToList(task.value)">+</button>
+    </form>
+</div>
+
+<div class="list">
+
+      <app-pending-list [list]="todoList"></app-pending-list>
+    
+</div>

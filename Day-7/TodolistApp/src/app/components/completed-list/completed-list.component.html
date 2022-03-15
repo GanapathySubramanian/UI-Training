@@ -1,0 +1,12 @@
+<div class="completed">
+    <h1>Completed List</h1>
+    <p *ngFor="let task of completedList;let i=index"> 
+        <span class="d-flex">
+            <span id="{{i}}">{{task}}</span>
+            <span class="d">
+                <button class="btn-success" (click)="redo(i,task)">Redo</button>
+                <button class="btn-danger" (click)="remove(i,task)">Remove</button>
+            </span>
+        </span>
+    </p>
+  </div>

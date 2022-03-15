@@ -1,0 +1,60 @@
+
+  .pending{
+    float: left;
+    width: 400px;
+    /* height: auto; */
+    margin: 10px;
+    background-color: white;
+  }
+.pending h1{
+    text-align: center;
+    color: #fca71e;
+    font-size: 15px;
+    font-weight: normal;
+}
+.pending p{
+    color: #fca71e;
+    /* margin: 15px; */
+}
+
+.line{
+    text-decoration: line-through;
+    text-decoration-color: #A683E3;
+  }
+  
+  input[type="checkbox"] {
+    margin: 20px;
+  }
+  
+ .pending p {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 200;
+    color: #00204a;
+  }
+
+
+
+  
+  .completed{
+    float: left;
+    width: 400px;
+    margin: 10px;
+    background-color: white;
+  }
+.completed h1{
+    text-align: center;
+    color: #fca71e;
+    font-size: 15px;
+    font-weight: normal;
+}
+.completed p span{
+    /* color: #fca71e; */
+    margin: 15px;
+}
+ .completed p {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 200;
+    color: #00204a;
+  }

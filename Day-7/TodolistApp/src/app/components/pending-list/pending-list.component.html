@@ -1,0 +1,9 @@
+<div class="pending">
+    <h1>TODO</h1>
+    <p *ngFor="let task of todoList;let i=index"> 
+        <input (click)="taskCompleted(i,task)" type="checkbox" name="checkbox" id="checkbox">
+        <span id="{{i}}">{{task}}</span>
+    </p>
+  </div>
+
+  <app-completed-list [completelist]="completedList" [todolist]="todoList"></app-completed-list>
