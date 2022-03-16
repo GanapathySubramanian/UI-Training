@@ -1,0 +1,22 @@
+<div class="pending">
+    <h1>TODO LIST</h1>
+    <p *ngFor="let todo of todoList;let i=index;">
+        <span *ngIf="todo.status=='Pending'">
+            <input type="checkbox" name="checkbox" (click)="addToCompletedList(i)"id="checkbox">
+            <span id="{{i}}">{{todo.taskName}}</span>
+        </span> 
+    </p>
+  </div>
+
+  <div class="completed">
+    <h1>COMPLETED LIST</h1>
+    <p *ngFor="let completed of todoList;let i=index;"> 
+        <span class="d-flex" *ngIf="completed.status=='Completed'">
+            <span id="{{i}}">{{completed.taskName}}</span>
+            <span class="d">
+                <button class="btn-success" (click)="redo(i)">Redo</button>
+                <button class="btn-danger" (click)="remove(i)">Remove</button>
+            </span>
+        </span>
+    </p>
+  </div>

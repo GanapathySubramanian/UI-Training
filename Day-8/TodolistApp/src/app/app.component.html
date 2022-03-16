@@ -1,0 +1,12 @@
+<app-nav></app-nav>
+
+<div class="box">
+  <form class="todoForm">
+    <input type="text" placeholder="New Item" #task >
+    <button type="button"   (click)="addToList(task.value)">+</button>
+  </form>
+</div>
+
+<div class="list">
+    <app-list [todo]="todoList"></app-list>
+</div>
