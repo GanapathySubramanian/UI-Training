@@ -33,3 +33,7 @@ Presidio UI Training
 # Day 7 
   ### TODO LIST - ANGULAR
   Live Demo : [Click here](https://confident-feynman-ea587e.netlify.app/)
+
+# Day 8
+  ### TODO LIST - ANGULAR
+  Live Demo : [Click here](https://pedantic-almeida-bab8ae.netlify.app/)
