@@ -58,3 +58,10 @@
     font-weight: 200;
     color: #00204a;
   }
+
+  .toast-container .ngx-toastr{
+    -moz-box-shadow: none ;
+    -goog-ms-box-shadow: none;
+    -webkit-box-shadow:none;
+    box-shadow:none;
+}
