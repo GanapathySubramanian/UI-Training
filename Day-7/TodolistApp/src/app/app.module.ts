@@ -25,10 +25,9 @@ export const Approute:Routes =[
     RouterModule.forRoot(Approute, {scrollPositionRestoration: 'enabled'}),
     BrowserAnimationsModule,
     ToastrModule.forRoot({
-      timeOut:1000,
+      timeOut:2000,
       progressBar:true,
       progressAnimation:'increasing',
-      preventDuplicates:true
     })
   ],
   providers: [],
