@@ -10,7 +10,7 @@ export class AppComponent {
   title = 'TodolistApp';
   completedList:String[]=[]
    todoList:String[]=[];
-   newTask:String='';
+  //  newTask:String='';
    storage:Storage=localStorage;
    constructor(private toastr:ToastrService){
      let data=JSON.parse(this.storage.getItem('todoItems'));

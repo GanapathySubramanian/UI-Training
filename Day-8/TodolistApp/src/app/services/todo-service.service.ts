@@ -12,8 +12,13 @@ export class TodoServiceService{
   // pendingTask:Subject<number> = new Subject<number>();
   // completedTask:Subject<number> = new Subject<number>();
   
+  //it will keep track on previous+new events
+  // totalTask:Subject<number> = new ReplaySubject<number>();
+  // pendingTask:Subject<number> = new ReplaySubject<number>();
+  // completedTask:Subject<number> = new ReplaySubject<number>();
+  
 
-  // it will keep track previous event
+  // it will keep track on the last updated + new event
   totalTask:Subject<number> = new BehaviorSubject<number>(0);
   pendingTask:Subject<number> = new BehaviorSubject<number>(0);
   completedTask:Subject<number> = new BehaviorSubject<number>(0);
