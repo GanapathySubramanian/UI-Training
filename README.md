@@ -35,5 +35,9 @@ Presidio UI Training
   Live Demo : [Click here](https://confident-feynman-ea587e.netlify.app/)
 
 # Day 8
-  ### TODO LIST - ANGULAR
+  ### TODO LIST - ANGULAR WITH SERVICE
   Live Demo : [Click here](https://pedantic-almeida-bab8ae.netlify.app/)
+
+# Day 9
+  ### TODO LIST - ANGULAR WITH PIPES
+  Live Demo : [Click here](https://reverent-jones-829b85.netlify.app/)
