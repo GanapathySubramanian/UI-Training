@@ -42,3 +42,7 @@ Presidio UI Training
 # Day 9
   ### TODO LIST - ANGULAR WITH PIPES
   Live Demo : [Click here](https://reverent-jones-829b85.netlify.app/)
+  
+# Day 10
+  ### TODO LIST - ANGULAR WITH FIREBASE
+  Live Demo : [Click here](https://modest-tereshkova-d007e2.netlify.app/addtask)
