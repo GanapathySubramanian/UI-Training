@@ -45,4 +45,4 @@ Presidio UI Training
   
 # Day 10
   ### TODO LIST - ANGULAR WITH FIREBASE
-  Live Demo : [Click here](https://modest-tereshkova-d007e2.netlify.app/addtask)
+  Live Demo : [Click here](https://modest-tereshkova-d007e2.netlify.app/)
