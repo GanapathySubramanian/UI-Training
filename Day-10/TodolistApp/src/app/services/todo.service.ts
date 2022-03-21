@@ -11,20 +11,15 @@ export class TodoService {
   category:Observable<string[]> = of(['Movies','Sports','Travels','Studies','Others']);
   todo:Todo={} as Todo;
   baseUrl='https://todolist-38891-default-rtdb.firebaseio.com/todo';
-
   listItems:Todo[]=[];
   // private sourceSubject = new Subject<Todo[]>();
   // sourceMessage = this.sourceSubject.asObservable();
-  list:Subject<Todo[]>=new Subject<Todo[]>();
-  totalTask:Subject<number> = new BehaviorSubject<number>(0);
-  pendingTask:Subject<number> = new BehaviorSubject<number>(0);
-  completedTask:Subject<number> = new BehaviorSubject<number>(0);
-  todoData: Todo[]=[];
+  list:BehaviorSubject<Todo[]>=new BehaviorSubject<Todo[]>(this.listItems);
 
   constructor(private http:HttpClient) {
-    
   }
 
+  
   getCategoryList():Observable<String[]>{
     return this.category;
   }
@@ -32,15 +27,13 @@ export class TodoService {
   addtodolist(todo:any):Observable<any>{
     this.todo=todo;
     return this.http.post(`${this.baseUrl}.json`,this.todo);
+     
   }
-
-  
 
   topending(key:any){
     let temp={status:'pending'}
     this.http.patch(`${this.baseUrl}/${key}.json`,temp).subscribe(res=>{
       console.log(res);
-
       this.getList();
     })
   }
@@ -59,6 +52,8 @@ export class TodoService {
     })
   }
   getList(){
+    console.log("iam called");
+    
     this.http.get(`${this.baseUrl}.json`).subscribe((data: any) => {
       this.listItems = [];
       if (data) {
@@ -81,7 +76,8 @@ export interface Todo{
   taskDescription:String;
   taskCategory:String;
   status:status;
-  createdAt:Date
+  createdAt:Date;
+  userEmail:Optional;
 }
 
 export enum status{

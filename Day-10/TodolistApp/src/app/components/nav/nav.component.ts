@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
@@ -12,15 +14,42 @@ export class NavComponent implements OnInit {
   @Input('total') totalTaskCount:number=0;
   @Input('pending') pendingTaskCount:number=0;
   @Input('completed')completedTaskCount:number=0;
-  @Input('Authenticated')auth:boolean=false;
-  
+  userEmail:any=null;
+  userName:any=null;
   list:any[]=[];
   
-  constructor(private todo:TodoService) {
-    this.getCategory();
-    this.getlist();
+
+  constructor(public auth:AuthenticationService,private todo:TodoService,private router:Router,private route:ActivatedRoute) {
+    
+    this.getauth();
+    
+        if(this.userEmail){
+          
+          this.getCategory();
+          this.getlist();
+        }
+    
    }
- 
+  getauth(){
+    this.auth.isAuthenticated().subscribe((data)=>{
+      console.log(data);
+      if(data){
+            this.userName=data.displayName;
+            this.userEmail=data.email;
+
+      }
+      else{
+          this.userEmail=null;
+          this.userName=null;
+      }
+    })
+  }
+logout(){
+  console.log("logging out");
+  this.auth.logout().subscribe(()=>{
+     this.router.navigate(['/signin'])
+  });
+}
   getCategory() {
     this.todo.getCategoryList().subscribe((data)=>{
       this.category=data;
@@ -31,26 +60,14 @@ export class NavComponent implements OnInit {
     this.todo.list.subscribe(data=>{
       this.list=data;
       console.log(this.list);
-      this.calculateCount(this.list);
+   
     })
   }
-  calculateCount(list: any[]) {
-    this.totalTaskCount=list.length;
-    this.pendingTaskCount=0;
-    this.completedTaskCount=0;
-    for(let i=0;i<list.length;i++){
-      if(list[i].status=='completed'){
-        this.completedTaskCount=this.completedTaskCount+1;
-      }
-      if(list[i].status=='pending'){
-        this.pendingTaskCount=this.pendingTaskCount+1;
-      }
-    }
-  }
+  
 
  
   ngOnInit(): void {
-    // this.getTaskCounts();    
+    this.getauth();
   }
 
 

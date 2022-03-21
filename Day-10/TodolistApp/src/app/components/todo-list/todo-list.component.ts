@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params} from '@angular/router';
+import { ActivatedRoute, Params, Router} from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { Todo, TodoService } from 'src/app/services/todo.service';
 @Component({
   selector: 'app-todo-list',
@@ -15,52 +17,52 @@ TodoListComponent implements OnInit {
   total:number=0;
   pending:number=0;
   completed:number=0;
+  userEmail:any=null;
 
-  constructor(private todo:TodoService,private route: ActivatedRoute) { 
+  constructor(private todo:TodoService,private auth:AuthenticationService,private route: ActivatedRoute,private router:Router,private toastr:ToastrService) { 
+    console.log("todolist constructor");
     this.getlist();
     this.route.paramMap.subscribe((params) => {
       this.category = params.get('id');
-    })
+    }) 
+  }
+
+  ngOnInit(): void {
+    this.getAuth();
     
+  }
+ 
+  getAuth(){
+    this.auth.isAuthenticated().subscribe((data)=>{
+      if(data==null){
+        this.router.navigate(['/signin'])
+      }else{
+          this.userEmail=data.email;
+          this.getlist();
+      }
+    })
   }
   
-  ngOnInit(): void {
-    this.todo.getList();
-  }
-
    getlist() {
+     this.todo.getList();
     this.todo.list.subscribe(data=>{
-      // this.calculateCount(data)
       this.list=data;
-     
-    })
-  }
-  // calculateCount(lists: Todo[]) {
-    
-  //   for(let i=0;i<lists.length;i++){
-  //     if(lists[i].taskCategory==this.category){
-  //       console.log(lists[i].taskName);
-  //       this.total=+1;
-
-  //       if(lists[i].status=='pending'){
-  //           this.pending=+1;
-  //       }
-  //       if(lists[i].status=='completed'){
-  //         this.completed=+1;
-  //       }
-  //     }
-      
-  //   }
-  // }
-
+      })
+    }
+  
   topending(id:any){
     this.todo.topending(id);
+    this.toastr.warning("Task Moved to TodoList")
+
   }
   toCompleted(id:any){
     this.todo.tocompleted(id);
+    this.toastr.success("Task Moved to CompletedList")
+
   }
     remove(id:any){
     this.todo.remove(id);
+    this.toastr.error("Task Removed Successfully")
   }
 
   

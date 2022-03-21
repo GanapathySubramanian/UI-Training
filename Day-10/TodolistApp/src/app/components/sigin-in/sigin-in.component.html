@@ -1,1 +1,13 @@
-<h1>SignIn</h1>
+
+<div class="box" id="heading">
+    <h1>LOGIN IN</h1>
+</div>
+<div class="box">
+    <form class="todoForm"  autocomplete="off" #signInForm="ngForm" (ngSubmit)="loginIn(signInForm)">
+      <input type="text" name="Email" placeholder="Enter your Email Id" [(ngModel)]="email">
+      <input type="text" name="Password" placeholder="Enter your password"  [(ngModel)]="password">
+      <p class="signup">New to our Platform? <a routerLink="/signup">SignUp</a></p>
+      <button type="submit" >Sign In</button>
+    </form>
+</div>
+

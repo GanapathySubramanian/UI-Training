@@ -131,14 +131,7 @@ display: flex;
 margin-right: 5px;
 justify-content:space-between;
 }
-.line{
-  text-decoration: line-through;
-  text-decoration-color: #A683E3;
-}
 
-input[type="checkbox"] {
-  margin: 20px;
-}
 
 .completed div {
   margin: 0;

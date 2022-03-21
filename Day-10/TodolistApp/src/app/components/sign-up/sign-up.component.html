@@ -1,1 +1,59 @@
-<h1>SignUp</h1>
+
+<div class="box" id="heading">
+    <h1>SIGN UP</h1>
+</div>
+<div class="box">
+    <form class="todoForm"  autocomplete="off" [formGroup]="signupFormGroup" (ngSubmit)="saveUser()">
+      <input type="text" formControlName="Name" placeholder="Enter your Name" >
+
+        <div *ngIf="signupFormGroup.controls['Name']?.invalid&&(signupFormGroup.controls['Name']?.dirty||signupFormGroup.controls['Name']?.touched)" class="alert alert-danger mt-1">
+
+          <div *ngIf="signupFormGroup.controls['Name']?.errors?.['required']">
+              Name is required
+          </div>
+
+          <div *ngIf="signupFormGroup.controls['Name']?.errors?.['minlength']">
+              Name must be at least 4 characters long
+          </div>
+        </div>
+      
+      <input type="text" formControlName="Email" placeholder="Enter your Email Id">
+        <div *ngIf="signupFormGroup.controls['Email']?.invalid&&(signupFormGroup.controls['Email']?.dirty||signupFormGroup.controls['Email']?.touched)" class="alert alert-danger mt-1">
+
+          <div *ngIf="signupFormGroup.controls['Email']?.errors?.['required']">
+              Email is required
+          </div>
+
+          <div *ngIf="signupFormGroup.controls['Email']?.errors?.['pattern']">
+              Email must be at least 4 characters long
+          </div>
+        </div>
+
+      <input type="text" formControlName="Password" placeholder="Enter your password"  >
+        <div *ngIf="signupFormGroup.controls['Password']?.invalid&&(signupFormGroup.controls['Password']?.dirty||signupFormGroup.controls['Password']?.touched)" class="alert alert-danger mt-1">
+
+          <div *ngIf="signupFormGroup.controls['Password']?.errors?.['required']">
+              Password is required
+          </div>
+
+          <div *ngIf="signupFormGroup.controls['Password']?.errors?.['pattern']">
+              Password must have at least one special character and one number and min length of 8
+          </div>
+        </div>
+      <input type="text" formControlName="confirmPassword" placeholder="confirm your password">
+          <div *ngIf="signupFormGroup.controls['confirmPassword']?.invalid&&(signupFormGroup.controls['confirmPassword']?.dirty||signupFormGroup.controls['confirmPassword']?.touched)" class="alert alert-danger mt-1">
+
+            <div *ngIf="signupFormGroup.controls['confirmPassword']?.errors?.['required']">
+                Confirm Password is required
+            </div>
+
+            <div *ngIf="signupFormGroup.controls['confirmPassword']?.errors?.['pattern']">
+                Confirm Password must have at least one special character and one number and min length of 8
+            </div>
+            <div *ngIf="signupFormGroup.controls['confirmPassword']?.errors?.['confirmedValidator']">Password and Confirm Password must be match.</div>
+          </div>
+      <p class="signup">Already Have an Account ? <a routerLink="/signin">SignIn</a></p>
+      <button type="submit" >Sign Up</button>
+    </form>
+</div>
+

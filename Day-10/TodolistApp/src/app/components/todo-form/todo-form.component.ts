@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { status, Todo, TodoService } from 'src/app/services/todo.service';
 
 @Component({
@@ -15,7 +18,10 @@ export class TodoFormComponent implements OnInit {
   status:status=status.Pending;
   created:Date=new Date;
   todo:Todo={} as Todo;
-  constructor(private todoService:TodoService) { 
+  userEmail:string='';
+  userName:any=null;
+  list:any[]=[];
+  constructor(private todoService:TodoService,private router:Router,private auth:AuthenticationService,private toastr:ToastrService) { 
     this.getCategory();
   }
  
@@ -32,13 +38,38 @@ export class TodoFormComponent implements OnInit {
     this.todo.taskCategory=this.taskCat;
     this.todo.status=this.status;
     this.todo.createdAt=this.created;
+    this.todo.userEmail=this.userEmail;
+    
     this.todoService.addtodolist(this.todo).subscribe();
+    this.todoService.getList();
     this.taskName='';
     this.taskDesc='';
     this.taskCat=''
+    this.toastr.info("Task Added Successfully")
+    
   }
 
+  
+  getAuth(){
+    this.auth.isAuthenticated().subscribe((data)=>{
+      if(data==null){
+        this.router.navigate(['/signin'])
+      }else{
+          this.userEmail=data.email;
+          this.userName=data.displayName;
+      }
+    })
+  }
+
+  logout(){
+    console.log("logging out");
+    this.auth.logout().subscribe(()=>{
+       this.router.navigate(['/signin'])
+    });
+  }
+  
   ngOnInit(): void {
+      this.getAuth();
   }
 
 }

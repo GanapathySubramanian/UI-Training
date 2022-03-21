@@ -14,6 +14,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SiginInComponent } from './components/sigin-in/sigin-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth,getAuth } from '@angular/fire/auth';
 const routes:Routes=[
   {path:'',component:SiginInComponent},
   {path:'addtask',component:TodoFormComponent},
@@ -43,7 +46,9 @@ const routes:Routes=[
     }),
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth())
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -44,5 +44,9 @@ Presidio UI Training
   Live Demo : [Click here](https://reverent-jones-829b85.netlify.app/)
   
 # Day 10
-  ### TODO LIST - ANGULAR WITH FIREBASE
+  ### TODO LIST - ANGULAR WITH FIREBASE 
   Live Demo : [Click here](https://modest-tereshkova-d007e2.netlify.app/)
+
+  ### TODO LIST - ANGULAR WITH SIGN IN AND SIGN UP USING FIREBASE
+  Live Demo : [Click here](https://cocky-dijkstra-9501c5.netlify.app/)
+

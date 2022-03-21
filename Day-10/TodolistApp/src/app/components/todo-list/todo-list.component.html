@@ -11,7 +11,7 @@
     <div class="pending">
         <h1>TODO LIST</h1>
         <div *ngFor="let todo of list;let i=index;">
-            <div *ngIf="todo.taskCategory==category">
+            <div *ngIf="todo.userEmail==userEmail && todo.taskCategory==category">
                 <div *ngIf="todo.status=='pending'">
                     <div>
                         <input type="checkbox" name="checkbox" id="checkbox" (click)="toCompleted(todo.id)">
@@ -26,7 +26,7 @@
     <div class="completed">
         <h1>COMPLETED LIST</h1>
         <div *ngFor="let completed of list;let i=index;"> 
-            <div *ngIf="completed.taskCategory==category">
+            <div *ngIf="completed.userEmail==userEmail && completed.taskCategory==category">
             <div  *ngIf="completed.status=='completed'">
                 <span class="d-flex">
                     <span id="{{i}}" class="line" placement="top" ngbTooltip="{{completed.taskDescription}}">{{completed.taskName | texttransform:'Titlecase'}}</span>
